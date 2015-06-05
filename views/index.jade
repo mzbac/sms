@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  if message
+    div
+      p.
+        Message has been sent, message id #{message.id}
+    form(method='post',action='/response')
+          input(type="hidden",name="msgId",value= "#{message.id}")
+          input(type='submit',name='submit',value='checkReply').submit-button
+  else
+    div
+      form(method='post',action='')
+        div#number
+          fieldset
+            label(for="number") number
+            input(type="text", name="number")
+        div#message
+          fieldset
+            label(for="msg") Message
+            textarea(type="text", name="msg")
+        input(type='submit',name='submit',value='Send').submit-button
+       div
+        form(method='post',action='/response')
+              input(type="text",name="msgId")
+              input(type='submit',name='submit',value='checkReply').submit-button

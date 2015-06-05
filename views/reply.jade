@@ -1,0 +1,12 @@
+extends layout
+
+block content
+ if message
+        div
+            each val in message
+             p message : #{val.content}
+    
+ else
+    div
+      p.
+       no response message。。。
